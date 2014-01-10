@@ -15,6 +15,6 @@
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIImage *rightArrow;
 @property (nonatomic, strong) UIImage *downArrow;
-@property (nonatomic) NSInteger numberOfItems;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end

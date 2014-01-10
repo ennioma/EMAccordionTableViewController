@@ -15,6 +15,6 @@
 @synthesize backgroundColor = _backgroundColor;
 @synthesize rightArrow = _rightArrow;
 @synthesize downArrow = _downArrow;
-@synthesize numberOfItems = _numberOfItems;
+@synthesize items = _items;
 
 @end

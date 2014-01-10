@@ -8,13 +8,13 @@
 
 #import "EMAccordionTableViewController.h"
 
-#define kTableViewHeaderHeight 60.0f
-#define kTableViewRowHeight 80.0f
 #define kSectionTag 1110
 
 @interface EMAccordionTableViewController () {
     UITableView *emTableView;
     CGRect emTableFrame;
+    CGFloat headerHeight;
+    CGFloat rowHeight;
     UITableViewStyle emTableStyle;
     
     NSMutableArray *sections;
@@ -34,7 +34,7 @@
     emTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height) style:emTableStyle];
     [emTableView setDataSource:self];
     [emTableView setDelegate:self];
-    [emTableView setRowHeight:kTableViewRowHeight];
+    [emTableView setRowHeight:rowHeight];
     
     [self.view addSubview:emTableView];
 }
@@ -65,6 +65,14 @@
     [sectionsOpened addObject:[NSNumber numberWithInt:0]];
 }
 
+- (void) setHeaderHeight:(CGFloat)height {
+    headerHeight = height;
+}
+
+- (void) setRowHeight:(CGFloat)height {
+    rowHeight = height;
+}
+
 #pragma mark UITableViewDataSource
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return sections.count;
@@ -75,7 +83,7 @@
     BOOL value = [[sectionsOpened objectAtIndex:section] boolValue];
     
     if (value)
-        return [emSection numberOfItems];
+        return emSection.items.count;
     else
         return 0;
 }
@@ -89,15 +97,22 @@
     return NULL;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([emDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+        return [emDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    else
+        [NSException raise:@"The delegate doesn't respond tableView:didSelectRowAtIndexPath:" format:@"The delegate doesn't respond tableView:didSelectRowAtIndexPath:"];
+}
+
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return kTableViewHeaderHeight;
+    return headerHeight;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     EMAccordionSection *emAccordionSection = [sections objectAtIndex:section];
     
-    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, emTableFrame.size.width, kTableViewHeaderHeight)];
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, emTableFrame.size.width, headerHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
 
     UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, sectionView.bounds.size.width, sectionView.bounds.size.height)];
@@ -105,6 +120,12 @@
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
 
+    UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, emTableFrame.size.width - 50.0f, sectionView.bounds.size.height)];
+    [cellTitle setText:emAccordionSection.title];
+    [cellTitle setBackgroundColor:[UIColor clearColor]];
+    [cellTitle setTextColor:emAccordionSection.titleColor];
+    [sectionView addSubview:cellTitle];
+    
     UIImageView *accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
     BOOL value = [[sectionsOpened objectAtIndex:section] boolValue];
     if (value)
@@ -116,11 +137,6 @@
 
     return sectionView;
 }
-
-- (CGFloat) :(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kTableViewRowHeight;
-}
-
 
 - (IBAction)openTheSection:(id)sender {
     int index = [sender tag] - kSectionTag;

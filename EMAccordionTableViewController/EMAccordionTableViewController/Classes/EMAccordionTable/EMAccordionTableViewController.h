@@ -12,13 +12,17 @@
 
 @protocol EMAccordionTableDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface EMAccordionTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 - (id) initWithTableFrame:(CGRect) frame style:(UITableViewStyle)tableStyle;
-- (void) addAccordionSection: (EMAccordionSection *) section;
 
+- (void) addAccordionSection: (EMAccordionSection *) section;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;
+
+- (void) setHeaderHeight:(CGFloat)height;
+- (void) setRowHeight:(CGFloat)height;
 
 @end
