@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D2D900A1880160500767A45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D90091880160500767A45 /* UIKit.framework */; };
+		6D2D900C1880160500767A45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D900B1880160500767A45 /* Foundation.framework */; };
+		6D2D900E1880160500767A45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D900D1880160500767A45 /* CoreGraphics.framework */; };
+		6D2D90141880160500767A45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D90121880160500767A45 /* InfoPlist.strings */; };
+		6D2D90161880160500767A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D90151880160500767A45 /* main.m */; };
+		6D2D901A1880160500767A45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D90191880160500767A45 /* AppDelegate.m */; };
+		6D2D901C1880160500767A45 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901B1880160500767A45 /* Default.png */; };
+		6D2D901E1880160500767A45 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901D1880160500767A45 /* Default@2x.png */; };
+		6D2D90201880160500767A45 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901F1880160500767A45 /* Default-568h@2x.png */; };
+		6D2D90311880160500767A45 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D90301880160500767A45 /* SenTestingKit.framework */; };
+		6D2D90321880160500767A45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D90091880160500767A45 /* UIKit.framework */; };
+		6D2D90331880160500767A45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D900B1880160500767A45 /* Foundation.framework */; };
+		6D2D903B1880160500767A45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D90391880160500767A45 /* InfoPlist.strings */; };
+		6D2D903E1880160500767A45 /* EMAccordionTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */; };
+		6D2D904F1880166F00767A45 /* EMAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904A1880166F00767A45 /* EMAccordionSection.m */; };
+		6D2D90501880166F00767A45 /* EMAccordionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */; };
+		6D2D90511880166F00767A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904E1880166F00767A45 /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D2D90341880160500767A45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D2D8FFE1880160500767A45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D2D90051880160500767A45;
+			remoteInfo = EMAccordionTableViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6D2D90061880160500767A45 /* EMAccordionTableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMAccordionTableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D2D90091880160500767A45 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6D2D900B1880160500767A45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6D2D900D1880160500767A45 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6D2D90111880160500767A45 /* EMAccordionTableViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EMAccordionTableViewController-Info.plist"; sourceTree = "<group>"; };
+		6D2D90131880160500767A45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D2D90151880160500767A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6D2D90171880160500767A45 /* EMAccordionTableViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EMAccordionTableViewController-Prefix.pch"; sourceTree = "<group>"; };
+		6D2D90181880160500767A45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6D2D90191880160500767A45 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6D2D901B1880160500767A45 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6D2D901D1880160500767A45 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		6D2D901F1880160500767A45 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6D2D902F1880160500767A45 /* EMAccordionTableViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EMAccordionTableViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D2D90301880160500767A45 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6D2D90381880160500767A45 /* EMAccordionTableViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EMAccordionTableViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		6D2D903A1880160500767A45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D2D903C1880160500767A45 /* EMAccordionTableViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewControllerTests.h; sourceTree = "<group>"; };
+		6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewControllerTests.m; sourceTree = "<group>"; };
+		6D2D90491880166F00767A45 /* EMAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionSection.h; sourceTree = "<group>"; };
+		6D2D904A1880166F00767A45 /* EMAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionSection.m; sourceTree = "<group>"; };
+		6D2D904B1880166F00767A45 /* EMAccordionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewController.h; sourceTree = "<group>"; };
+		6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewController.m; sourceTree = "<group>"; };
+		6D2D904D1880166F00767A45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6D2D904E1880166F00767A45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D2D90031880160500767A45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D900A1880160500767A45 /* UIKit.framework in Frameworks */,
+				6D2D900C1880160500767A45 /* Foundation.framework in Frameworks */,
+				6D2D900E1880160500767A45 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D2D902B1880160500767A45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D90311880160500767A45 /* SenTestingKit.framework in Frameworks */,
+				6D2D90321880160500767A45 /* UIKit.framework in Frameworks */,
+				6D2D90331880160500767A45 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D2D8FFD1880160500767A45 = {
+			isa = PBXGroup;
+			children = (
+				6D2D900F1880160500767A45 /* EMAccordionTableViewController */,
+				6D2D90361880160500767A45 /* EMAccordionTableViewControllerTests */,
+				6D2D90081880160500767A45 /* Frameworks */,
+				6D2D90071880160500767A45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6D2D90071880160500767A45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90061880160500767A45 /* EMAccordionTableViewController.app */,
+				6D2D902F1880160500767A45 /* EMAccordionTableViewControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D2D90081880160500767A45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90091880160500767A45 /* UIKit.framework */,
+				6D2D900B1880160500767A45 /* Foundation.framework */,
+				6D2D900D1880160500767A45 /* CoreGraphics.framework */,
+				6D2D90301880160500767A45 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D2D900F1880160500767A45 /* EMAccordionTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90181880160500767A45 /* AppDelegate.h */,
+				6D2D90191880160500767A45 /* AppDelegate.m */,
+				6D2D90471880166F00767A45 /* Classes */,
+				6D2D90101880160500767A45 /* Supporting Files */,
+			);
+			path = EMAccordionTableViewController;
+			sourceTree = "<group>";
+		};
+		6D2D90101880160500767A45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90111880160500767A45 /* EMAccordionTableViewController-Info.plist */,
+				6D2D90121880160500767A45 /* InfoPlist.strings */,
+				6D2D90151880160500767A45 /* main.m */,
+				6D2D90171880160500767A45 /* EMAccordionTableViewController-Prefix.pch */,
+				6D2D901B1880160500767A45 /* Default.png */,
+				6D2D901D1880160500767A45 /* Default@2x.png */,
+				6D2D901F1880160500767A45 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6D2D90361880160500767A45 /* EMAccordionTableViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D903C1880160500767A45 /* EMAccordionTableViewControllerTests.h */,
+				6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */,
+				6D2D90371880160500767A45 /* Supporting Files */,
+			);
+			path = EMAccordionTableViewControllerTests;
+			sourceTree = "<group>";
+		};
+		6D2D90371880160500767A45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90381880160500767A45 /* EMAccordionTableViewControllerTests-Info.plist */,
+				6D2D90391880160500767A45 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6D2D90471880166F00767A45 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90481880166F00767A45 /* EMAccordionTable */,
+				6D2D904D1880166F00767A45 /* ViewController.h */,
+				6D2D904E1880166F00767A45 /* ViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6D2D90481880166F00767A45 /* EMAccordionTable */ = {
+			isa = PBXGroup;
+			children = (
+				6D2D90491880166F00767A45 /* EMAccordionSection.h */,
+				6D2D904A1880166F00767A45 /* EMAccordionSection.m */,
+				6D2D904B1880166F00767A45 /* EMAccordionTableViewController.h */,
+				6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */,
+			);
+			path = EMAccordionTable;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D2D90051880160500767A45 /* EMAccordionTableViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D2D90411880160500767A45 /* Build configuration list for PBXNativeTarget "EMAccordionTableViewController" */;
+			buildPhases = (
+				6D2D90021880160500767A45 /* Sources */,
+				6D2D90031880160500767A45 /* Frameworks */,
+				6D2D90041880160500767A45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EMAccordionTableViewController;
+			productName = EMAccordionTableViewController;
+			productReference = 6D2D90061880160500767A45 /* EMAccordionTableViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6D2D902E1880160500767A45 /* EMAccordionTableViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D2D90441880160500767A45 /* Build configuration list for PBXNativeTarget "EMAccordionTableViewControllerTests" */;
+			buildPhases = (
+				6D2D902A1880160500767A45 /* Sources */,
+				6D2D902B1880160500767A45 /* Frameworks */,
+				6D2D902C1880160500767A45 /* Resources */,
+				6D2D902D1880160500767A45 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D2D90351880160500767A45 /* PBXTargetDependency */,
+			);
+			name = EMAccordionTableViewControllerTests;
+			productName = EMAccordionTableViewControllerTests;
+			productReference = 6D2D902F1880160500767A45 /* EMAccordionTableViewControllerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D2D8FFE1880160500767A45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = EM;
+			};
+			buildConfigurationList = 6D2D90011880160500767A45 /* Build configuration list for PBXProject "EMAccordionTableViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6D2D8FFD1880160500767A45;
+			productRefGroup = 6D2D90071880160500767A45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D2D90051880160500767A45 /* EMAccordionTableViewController */,
+				6D2D902E1880160500767A45 /* EMAccordionTableViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D2D90041880160500767A45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D90141880160500767A45 /* InfoPlist.strings in Resources */,
+				6D2D901C1880160500767A45 /* Default.png in Resources */,
+				6D2D901E1880160500767A45 /* Default@2x.png in Resources */,
+				6D2D90201880160500767A45 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D2D902C1880160500767A45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D903B1880160500767A45 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D2D902D1880160500767A45 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D2D90021880160500767A45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D90161880160500767A45 /* main.m in Sources */,
+				6D2D901A1880160500767A45 /* AppDelegate.m in Sources */,
+				6D2D904F1880166F00767A45 /* EMAccordionSection.m in Sources */,
+				6D2D90501880166F00767A45 /* EMAccordionTableViewController.m in Sources */,
+				6D2D90511880166F00767A45 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D2D902A1880160500767A45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D2D903E1880160500767A45 /* EMAccordionTableViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6D2D90351880160500767A45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D2D90051880160500767A45 /* EMAccordionTableViewController */;
+			targetProxy = 6D2D90341880160500767A45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6D2D90121880160500767A45 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D2D90131880160500767A45 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6D2D90391880160500767A45 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D2D903A1880160500767A45 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6D2D903F1880160500767A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D2D90401880160500767A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D2D90421880160500767A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMAccordionTableViewController/EMAccordionTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "EMAccordionTableViewController/EMAccordionTableViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6D2D90431880160500767A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMAccordionTableViewController/EMAccordionTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "EMAccordionTableViewController/EMAccordionTableViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6D2D90451880160500767A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EMAccordionTableViewController.app/EMAccordionTableViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMAccordionTableViewController/EMAccordionTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "EMAccordionTableViewControllerTests/EMAccordionTableViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		6D2D90461880160500767A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EMAccordionTableViewController.app/EMAccordionTableViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EMAccordionTableViewController/EMAccordionTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "EMAccordionTableViewControllerTests/EMAccordionTableViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D2D90011880160500767A45 /* Build configuration list for PBXProject "EMAccordionTableViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D2D903F1880160500767A45 /* Debug */,
+				6D2D90401880160500767A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D2D90411880160500767A45 /* Build configuration list for PBXNativeTarget "EMAccordionTableViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D2D90421880160500767A45 /* Debug */,
+				6D2D90431880160500767A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D2D90441880160500767A45 /* Build configuration list for PBXNativeTarget "EMAccordionTableViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D2D90451880160500767A45 /* Debug */,
+				6D2D90461880160500767A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D2D8FFE1880160500767A45 /* Project object */;
+}
