@@ -17,6 +17,9 @@
 
 @interface EMAccordionTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) UIImage * closedSectionIcon;
+@property (nonatomic, strong) UIImage * openedSectionIcon;
+
 - (id) initWithTableFrame:(CGRect) frame style:(UITableViewStyle)tableStyle;
 
 - (void) addAccordionSection: (EMAccordionSection *) section;

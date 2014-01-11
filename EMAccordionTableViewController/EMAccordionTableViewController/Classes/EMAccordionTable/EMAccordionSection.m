@@ -13,8 +13,6 @@
 @synthesize title = _title;
 @synthesize titleColor = _titleColor;
 @synthesize backgroundColor = _backgroundColor;
-@synthesize rightArrow = _rightArrow;
-@synthesize downArrow = _downArrow;
 @synthesize items = _items;
 
 @end

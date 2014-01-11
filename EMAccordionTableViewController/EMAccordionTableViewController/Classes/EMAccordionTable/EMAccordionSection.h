@@ -13,8 +13,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, strong) UIColor *backgroundColor;
-@property (nonatomic, strong) UIImage *rightArrow;
-@property (nonatomic, strong) UIImage *downArrow;
 @property (nonatomic, strong) NSMutableArray *items;
 
 @end
