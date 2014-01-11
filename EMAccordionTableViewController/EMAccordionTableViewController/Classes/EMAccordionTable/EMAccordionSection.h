@@ -10,9 +10,10 @@
 
 @interface EMAccordionSection : NSObject
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIColor *titleColor;
+@property (nonatomic, strong) UIFont *titleFont;
 
 @end

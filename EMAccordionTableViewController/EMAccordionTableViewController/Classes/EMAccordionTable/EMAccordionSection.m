@@ -10,9 +10,10 @@
 
 @implementation EMAccordionSection
 
-@synthesize title = _title;
-@synthesize titleColor = _titleColor;
 @synthesize backgroundColor = _backgroundColor;
 @synthesize items = _items;
+@synthesize title = _title;
+@synthesize titleColor = _titleColor;
+@synthesize titleFont = _titleFont;
 
 @end
