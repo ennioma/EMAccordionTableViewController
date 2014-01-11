@@ -27,9 +27,12 @@
 
 @implementation EMAccordionTableViewController
 
+@synthesize closedSectionIcon = _closedSectionIcon;
+@synthesize openedSectionIcon = _openedSectionIcon;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view = [[UIView alloc] initWithFrame:emTableFrame];
     emTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height) style:emTableStyle];
     [emTableView setDataSource:self];
@@ -93,8 +96,6 @@
         return [emDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
     else
         [NSException raise:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:" format:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:"];
-    
-    return NULL;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,27 +115,28 @@
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, emTableFrame.size.width, headerHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
-
+    
     UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, sectionView.bounds.size.width, sectionView.bounds.size.height)];
     [sectionBtn addTarget:self action:@selector(openTheSection:) forControlEvents:UIControlEventTouchDown];
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
-
+    
     UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, emTableFrame.size.width - 50.0f, sectionView.bounds.size.height)];
     [cellTitle setText:emAccordionSection.title];
-    [cellTitle setBackgroundColor:[UIColor clearColor]];
     [cellTitle setTextColor:emAccordionSection.titleColor];
+    [cellTitle setBackgroundColor:[UIColor clearColor]];
     [sectionView addSubview:cellTitle];
     
     UIImageView *accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
     BOOL value = [[sectionsOpened objectAtIndex:section] boolValue];
+    [accessoryIV setBackgroundColor:[UIColor clearColor]];
     if (value)
-        [accessoryIV setBackgroundColor:[UIColor whiteColor]];
+        [accessoryIV setImage:self.openedSectionIcon];
     else
-        [accessoryIV setBackgroundColor:[UIColor blackColor]];
-
+        [accessoryIV setImage:self.closedSectionIcon];
+    
     [sectionView addSubview:accessoryIV];
-
+    
     return sectionView;
 }
 
