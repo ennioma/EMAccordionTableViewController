@@ -30,7 +30,11 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     // Setup the EMAccordionTableViewController
-    emTV = [[EMAccordionTableViewController alloc] initWithTableFrame:CGRectMake(100.0f, 100.0f, self.view.bounds.size.width - 200.0f, self.view.bounds.size.height - 200.0f) style:UITableViewStylePlain];
+    CGFloat origin = 20.0f;
+    if ([[UIDevice currentDevice].model hasPrefix:@"iPad"])
+        origin = 100.0f;
+        
+    emTV = [[EMAccordionTableViewController alloc] initWithTableFrame:CGRectMake(origin, origin, self.view.bounds.size.width - origin*2, self.view.bounds.size.height - origin*2) style:UITableViewStylePlain];
     [emTV setRowHeight:kTableRowHeight];
     [emTV setHeaderHeight:kTableHeaderHeight];
     
@@ -43,7 +47,8 @@
     //
     
     // Section graphics
-    UIColor *sectionsColor = [UIColor colorWithRed:46.0f/255.0f green:61.0f/255.0f blue:5.0f/255.0f alpha:1.0f];
+    UIColor *sectionsColor = [UIColor colorWithRed:62.0f/255.0f green:119.0f/255.0f blue:190.0f/255.0f alpha:1.0f];
+    UIColor *sectionTitleColor = [UIColor whiteColor];
     UIFont *sectionTitleFont = [UIFont fontWithName:@"Futura" size:24.0f];
 
     // Add the sections to the controller
@@ -52,21 +57,21 @@
     [section01 setItems:dataSection01];
     [section01 setTitle:@"Animals"];
     [section01 setTitleFont:sectionTitleFont];
-    [section01 setTitleColor:[UIColor blackColor]];
+    [section01 setTitleColor:sectionTitleColor];
     [emTV addAccordionSection:section01];
     
     EMAccordionSection *section02 = [[EMAccordionSection alloc] init];
     [section02 setBackgroundColor:sectionsColor];
     [section02 setItems:dataSection02];
     [section02 setTitle:@"Tennis players"];
-    [section02 setTitleColor:[UIColor blackColor]];
+    [section02 setTitleColor:sectionTitleColor];
     [section01 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section02];
     
     EMAccordionSection *section03 = [[EMAccordionSection alloc] init];
     [section03 setBackgroundColor:sectionsColor];
     [section03 setTitle:@"Buh!"];
-    [section03 setTitleColor:[UIColor whiteColor]];
+    [section03 setTitleColor:sectionTitleColor];
     [section01 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section03];
     [emTV setDelegate:self];
@@ -83,11 +88,11 @@
 #pragma mark EMAccordionTableDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"emCell"];
-    [cell setFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, 80.0f)];
+    [cell setFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, kTableRowHeight)];
     
     NSMutableArray *items = [self dataFromIndexPath:indexPath];
 
-    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, cell.contentView.frame.size.width - 10.0f, 80.0f)];
+    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, cell.contentView.frame.size.width - 10.0f, kTableRowHeight)];
     [titleLbl setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:12.0f]];
     [titleLbl setText:[items objectAtIndex:indexPath.row]];
     [titleLbl setBackgroundColor:[UIColor clearColor]];

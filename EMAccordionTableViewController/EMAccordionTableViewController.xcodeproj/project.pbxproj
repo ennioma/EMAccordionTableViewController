@@ -24,6 +24,8 @@
 		6D2D904F1880166F00767A45 /* EMAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904A1880166F00767A45 /* EMAccordionSection.m */; };
 		6D2D90501880166F00767A45 /* EMAccordionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */; };
 		6D2D90511880166F00767A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904E1880166F00767A45 /* ViewController.m */; };
+		6D2EB86A1880619600234978 /* closedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8681880619600234978 /* closedIcon.png */; };
+		6D2EB86B1880619600234978 /* openedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8691880619600234978 /* openedIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewController.m; sourceTree = "<group>"; };
 		6D2D904D1880166F00767A45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D2D904E1880166F00767A45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6D2EB8681880619600234978 /* closedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closedIcon.png; sourceTree = "<group>"; };
+		6D2EB8691880619600234978 /* openedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openedIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				6D2D90181880160500767A45 /* AppDelegate.h */,
 				6D2D90191880160500767A45 /* AppDelegate.m */,
 				6D2D90471880166F00767A45 /* Classes */,
+				6D2EB8671880619600234978 /* Images */,
 				6D2D90101880160500767A45 /* Supporting Files */,
 			);
 			path = EMAccordionTableViewController;
@@ -181,6 +186,15 @@
 				6D2D904C1880166F00767A45 /* EMAccordionTableViewController.m */,
 			);
 			path = EMAccordionTable;
+			sourceTree = "<group>";
+		};
+		6D2EB8671880619600234978 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6D2EB8681880619600234978 /* closedIcon.png */,
+				6D2EB8691880619600234978 /* openedIcon.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +272,8 @@
 				6D2D901C1880160500767A45 /* Default.png in Resources */,
 				6D2D901E1880160500767A45 /* Default@2x.png in Resources */,
 				6D2D90201880160500767A45 /* Default-568h@2x.png in Resources */,
+				6D2EB86A1880619600234978 /* closedIcon.png in Resources */,
+				6D2EB86B1880619600234978 /* openedIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
