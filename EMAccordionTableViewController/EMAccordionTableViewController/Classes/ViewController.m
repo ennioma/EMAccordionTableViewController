@@ -103,8 +103,10 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    EMAccordionSection *section = [sections objectAtIndex:indexPath.row];
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Oh my!" message:[[NSString alloc] initWithFormat:@"%@", section.title] delegate:NULL cancelButtonTitle:NULL otherButtonTitles:@"OK", nil];
+    EMAccordionSection *section = [sections objectAtIndex:indexPath.section];
+    NSMutableArray *items = [self dataFromIndexPath:indexPath];
+
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Oh my!" message:[[NSString alloc] initWithFormat:@"%@ : %@", section.title, [items objectAtIndex:indexPath.row]] delegate:NULL cancelButtonTitle:NULL otherButtonTitles:@"OK", nil];
     [av show];
 }
 
