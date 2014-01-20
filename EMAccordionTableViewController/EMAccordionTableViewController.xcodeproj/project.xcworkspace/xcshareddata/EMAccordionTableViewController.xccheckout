@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DBF51F20-4321-4C89-9380-CD23D18C473A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EMAccordionTableViewController</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8BA94430-979C-4763-BD93-D7BF4DC819C9</key>
+		<string>https://github.com/ennioma/EMAccordionTableViewController.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EMAccordionTableViewController/EMAccordionTableViewController.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8BA94430-979C-4763-BD93-D7BF4DC819C9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ennioma/EMAccordionTableViewController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8BA94430-979C-4763-BD93-D7BF4DC819C9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8BA94430-979C-4763-BD93-D7BF4DC819C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EMAccordionTableViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

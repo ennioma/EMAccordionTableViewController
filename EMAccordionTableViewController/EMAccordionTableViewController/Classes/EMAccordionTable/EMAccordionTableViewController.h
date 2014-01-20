@@ -19,13 +19,13 @@
 
 @property (nonatomic, strong) UIImage * closedSectionIcon;
 @property (nonatomic, strong) UIImage * openedSectionIcon;
+@property (nonatomic, strong) UITableView *tableView;
 
-- (id) initWithTableFrame:(CGRect) frame style:(UITableViewStyle)tableStyle;
+- (id) initWithTable:(UITableView *)tableView;
 
 - (void) addAccordionSection: (EMAccordionSection *) section;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;
 
 - (void) setHeaderHeight:(CGFloat)height;
-- (void) setRowHeight:(CGFloat)height;
 
 @end

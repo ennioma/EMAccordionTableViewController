@@ -16,8 +16,7 @@ to the delegate the responsability to implement tableView:cellForRowAtIndexPath 
 
 Simply copy all the files included in the folder [EMAccordionTable](https://githubcom/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTableViewController/EMAccordionTableViewController/Classes/EMAccordionTable) and start playing with it!
 
-## How to use it?
-
+## How it works?
 ### EMAccordionTableViewController Class
 
 ```objective-c
@@ -25,14 +24,14 @@ Simply copy all the files included in the folder [EMAccordionTable](https://gith
 
 @property (nonatomic, strong) UIImage * closedSectionIcon;
 @property (nonatomic, strong) UIImage * openedSectionIcon;
+@property (nonatomic, strong) UITableView *tableView;
 
-- (id) initWithTableFrame:(CGRect) frame style:(UITableViewStyle)tableStyle;
+- (id) initWithTable:(UITableView *)tableView;
 
 - (void) addAccordionSection: (EMAccordionSection *) section;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;
 
 - (void) setHeaderHeight:(CGFloat)height;
-- (void) setRowHeight:(CGFloat)height;
 
 @end
 ```
@@ -47,11 +46,22 @@ Simply copy all the files included in the folder [EMAccordionTable](https://gith
 
 ```
 
+## How to use it?
 ### Example
     // Setup the EMAccordionTableViewController
-    emTV = [[EMAccordionTableViewController alloc] initWithTableFrame:CGRectMake(100.0f, 100.0f, self.view.bounds.size.width - 200.0f, self.view.bounds.size.height - 200.0f) style:UITableViewStylePlain];
-    [emTV setRowHeight:kTableRowHeight];
-    [emTV setHeaderHeight:kTableHeaderHeight];
+    origin = 20.0f;
+    if ([[UIDevice currentDevice].model hasPrefix:@"iPad"])
+        origin = 100.0f;
+  
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(origin, origin, self.view.bounds.size.width - origin*2, self.view.bounds.size.height - origin*2) style:UITableViewStylePlain];
+    [tableView setSectionHeaderHeight:kTableHeaderHeight];
+    /*
+     ... set here some other tableView properties ...
+     */
+    
+    // Setup the EMAccordionTableViewController
+    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView];
+    [emTV setDelegate:self];
     
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];
     [emTV setOpenedSectionIcon:[UIImage imageNamed:@"openedIcon"]];
@@ -62,7 +72,8 @@ Simply copy all the files included in the folder [EMAccordionTable](https://gith
     //
     
     // Section graphics
-    UIColor *sectionsColor = [UIColor colorWithRed:46.0f/255.0f green:61.0f/255.0f blue:5.0f/255.0f alpha:1.0f];
+    UIColor *sectionsColor = [UIColor colorWithRed:62.0f/255.0f green:119.0f/255.0f blue:190.0f/255.0f alpha:1.0f];
+    UIColor *sectionTitleColor = [UIColor whiteColor];
     UIFont *sectionTitleFont = [UIFont fontWithName:@"Futura" size:24.0f];
 
     // Add the sections to the controller
@@ -71,28 +82,27 @@ Simply copy all the files included in the folder [EMAccordionTable](https://gith
     [section01 setItems:dataSection01];
     [section01 setTitle:@"Animals"];
     [section01 setTitleFont:sectionTitleFont];
-    [section01 setTitleColor:[UIColor blackColor]];
+    [section01 setTitleColor:sectionTitleColor];
     [emTV addAccordionSection:section01];
     
     EMAccordionSection *section02 = [[EMAccordionSection alloc] init];
     [section02 setBackgroundColor:sectionsColor];
     [section02 setItems:dataSection02];
     [section02 setTitle:@"Tennis players"];
-    [section02 setTitleColor:[UIColor blackColor]];
+    [section02 setTitleColor:sectionTitleColor];
     [section01 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section02];
     
     EMAccordionSection *section03 = [[EMAccordionSection alloc] init];
     [section03 setBackgroundColor:sectionsColor];
     [section03 setTitle:@"Buh!"];
-    [section03 setTitleColor:[UIColor whiteColor]];
+    [section03 setTitleColor:sectionTitleColor];
     [section01 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section03];
-    [emTV setDelegate:self];
     
     sections = [[NSArray alloc] initWithObjects:section01, section02, section03, nil];
     
-    [self.view addSubview:emTV.view];
+    [self.view addSubview:emTV.tableView];
 
 ## Help me improving this!
 How? Simply feel free to fork the project and improve it!

@@ -22,6 +22,7 @@
     NSMutableArray *dataSection02;
     
     NSArray *sections;
+    CGFloat origin;
 }
 
 - (void)viewDidLoad {
@@ -30,13 +31,19 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     // Setup the EMAccordionTableViewController
-    CGFloat origin = 20.0f;
+    origin = 20.0f;
     if ([[UIDevice currentDevice].model hasPrefix:@"iPad"])
         origin = 100.0f;
-        
-    emTV = [[EMAccordionTableViewController alloc] initWithTableFrame:CGRectMake(origin, origin, self.view.bounds.size.width - origin*2, self.view.bounds.size.height - origin*2) style:UITableViewStylePlain];
-    [emTV setRowHeight:kTableRowHeight];
-    [emTV setHeaderHeight:kTableHeaderHeight];
+  
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(origin, origin, self.view.bounds.size.width - origin*2, self.view.bounds.size.height - origin*2) style:UITableViewStylePlain];
+    [tableView setSectionHeaderHeight:kTableHeaderHeight];
+    /*
+     ... set here some other tableView properties ...
+     */
+    
+    // Setup the EMAccordionTableViewController
+    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView];
+    [emTV setDelegate:self];
     
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];
     [emTV setOpenedSectionIcon:[UIImage imageNamed:@"openedIcon"]];
@@ -74,11 +81,10 @@
     [section03 setTitleColor:sectionTitleColor];
     [section01 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section03];
-    [emTV setDelegate:self];
     
     sections = [[NSArray alloc] initWithObjects:section01, section02, section03, nil];
     
-    [self.view addSubview:emTV.view];
+    [self.view addSubview:emTV.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,11 +94,10 @@
 #pragma mark EMAccordionTableDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"emCell"];
-    [cell setFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, kTableRowHeight)];
-    
+
     NSMutableArray *items = [self dataFromIndexPath:indexPath];
 
-    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, cell.contentView.frame.size.width - 10.0f, kTableRowHeight)];
+    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.view.bounds.size.width - origin*2 - 10.0f, kTableRowHeight)];
     [titleLbl setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:12.0f]];
     [titleLbl setText:[items objectAtIndex:indexPath.row]];
     [titleLbl setBackgroundColor:[UIColor clearColor]];

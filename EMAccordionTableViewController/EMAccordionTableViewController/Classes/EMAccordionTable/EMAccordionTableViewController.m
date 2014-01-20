@@ -11,10 +11,7 @@
 #define kSectionTag 1110
 
 @interface EMAccordionTableViewController () {
-    UITableView *emTableView;
-    CGRect emTableFrame;
-    CGFloat headerHeight;
-    CGFloat rowHeight;
+//    CGFloat headerHeight;
     UITableViewStyle emTableStyle;
     
     NSMutableArray *sections;
@@ -29,17 +26,10 @@
 
 @synthesize closedSectionIcon = _closedSectionIcon;
 @synthesize openedSectionIcon = _openedSectionIcon;
+@synthesize tableView = _tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view = [[UIView alloc] initWithFrame:emTableFrame];
-    emTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height) style:emTableStyle];
-    [emTableView setDataSource:self];
-    [emTableView setDelegate:self];
-    [emTableView setRowHeight:rowHeight];
-    
-    [self.view addSubview:emTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,10 +37,23 @@
 }
 
 // Exposed Methods
-- (id)initWithTableFrame:(CGRect) frame style:(UITableViewStyle)tableStyle {
+- (void) setEmTableView:(UITableView *)tv {
+    self.view = [[UIView alloc] initWithFrame:tv.frame];
+    
+    _tableView = tv;
+    [_tableView setDataSource:self];
+    [_tableView setDelegate:self];
+    
+    [self.view addSubview:_tableView];
+}
+
+- (id) initWithTable:(UITableView *)tableView {
     if (self = [super init]) {
-        emTableFrame = frame;
-        emTableStyle = tableStyle;
+        self.view = [[UIView alloc] initWithFrame:tableView.frame];
+        
+        _tableView = tableView;
+        [_tableView setDataSource:self];
+        [_tableView setDelegate:self];
         
         sections = [[NSMutableArray alloc] initWithCapacity:0];
         sectionsOpened = [[NSMutableArray alloc] initWithCapacity:0];
@@ -68,13 +71,9 @@
     [sectionsOpened addObject:[NSNumber numberWithInt:0]];
 }
 
-- (void) setHeaderHeight:(CGFloat)height {
-    headerHeight = height;
-}
-
-- (void) setRowHeight:(CGFloat)height {
-    rowHeight = height;
-}
+//- (void) setHeaderHeight:(CGFloat)height {
+//    headerHeight = height;
+//}
 
 #pragma mark UITableViewDataSource
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -96,6 +95,8 @@
         return [emDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
     else
         [NSException raise:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:" format:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:"];
+    
+    return NULL;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,13 +108,14 @@
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return headerHeight;
+    return tableView.sectionHeaderHeight;
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     EMAccordionSection *emAccordionSection = [sections objectAtIndex:section];
     
-    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, emTableFrame.size.width, headerHeight)];
+    
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, tableView.sectionHeaderHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
     
     UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, sectionView.bounds.size.width, sectionView.bounds.size.height)];
@@ -121,7 +123,7 @@
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
     
-    UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, emTableFrame.size.width - 50.0f, sectionView.bounds.size.height)];
+    UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
     [cellTitle setText:emAccordionSection.title];
     [cellTitle setTextColor:emAccordionSection.titleColor];
     [cellTitle setBackgroundColor:[UIColor clearColor]];
@@ -143,13 +145,12 @@
 - (IBAction)openTheSection:(id)sender {
     int index = [sender tag] - kSectionTag;
     
-    NSLog(@"Reload the section at index %d", index);
     BOOL value = [[sectionsOpened objectAtIndex:index] boolValue];
     NSNumber *updatedValue = [NSNumber numberWithBool:!value];
     
     [sectionsOpened setObject:updatedValue atIndexedSubscript:index];
     
-    [emTableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end
