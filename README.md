@@ -12,6 +12,9 @@ to the delegate the responsability to implement tableView:cellForRowAtIndexPath 
 * Support rotation
 * Completely reusable component
 
+## Apps that use the controller
+* [my Soldier for Battlefield 4](https://itunes.apple.com/us/app/my-soldier-for-battlefield-4/id718845676)
+
 ## How to install it?
 
 Simply copy all the files included in the folder [EMAccordionTable](https://githubcom/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTableViewController/EMAccordionTableViewController/Classes/EMAccordionTable) and start playing with it!
