@@ -142,6 +142,16 @@
     return sectionView;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([emDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+        return [emDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+    else
+        [NSException raise:@"The delegate doesn't respond ew:heightForRowAtIndexP:" format:@"The delegate doesn't respond ew:heightForRowAtIndexP:"];
+    
+    return 0.0;
+}
+
+
 - (IBAction)openTheSection:(id)sender {
     int index = [sender tag] - kSectionTag;
     

@@ -20,6 +20,10 @@
 @implementation ViewController {
     NSMutableArray *dataSection01;
     NSMutableArray *dataSection02;
+    NSMutableArray *dataSection03;
+    NSMutableArray *dataSection04;
+    NSMutableArray *dataSection05;
+    NSMutableArray *dataSection06;
     
     NSArray *sections;
     CGFloat origin;
@@ -51,6 +55,10 @@
     // Setup some test data
     dataSection01 = [[NSMutableArray alloc] initWithObjects:@"Dog", @"Cat", @"Pig", nil];
     dataSection02 = [[NSMutableArray alloc] initWithObjects:@"Federer", @"Nadal", nil];
+    dataSection03 = [[NSMutableArray alloc] initWithObjects:@"Naples", @"Genoa", @"New York", nil];
+    dataSection04 = [[NSMutableArray alloc] initWithObjects:@"Adele", @"Arisa", @"Clementino", nil];
+    dataSection05 = [[NSMutableArray alloc] initWithObjects:@"Red", @"Orange", @"Blue", @"Yello", @"Black", nil];
+    dataSection06 = [[NSMutableArray alloc] initWithObjects:@"Italy", @"Spain", @"Ireland", @"Scotland", @"Poland", nil];
     //
     
     // Section graphics
@@ -72,17 +80,42 @@
     [section02 setItems:dataSection02];
     [section02 setTitle:@"Tennis players"];
     [section02 setTitleColor:sectionTitleColor];
-    [section01 setTitleFont:sectionTitleFont];
+    [section02 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section02];
     
     EMAccordionSection *section03 = [[EMAccordionSection alloc] init];
     [section03 setBackgroundColor:sectionsColor];
-    [section03 setTitle:@"Buh!"];
+    [section03 setItems:dataSection03];
+    [section03 setTitle:@"Cities"];
     [section03 setTitleColor:sectionTitleColor];
-    [section01 setTitleFont:sectionTitleFont];
+    [section03 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section03];
     
-    sections = [[NSArray alloc] initWithObjects:section01, section02, section03, nil];
+    EMAccordionSection *section04 = [[EMAccordionSection alloc] init];
+    [section04 setBackgroundColor:sectionsColor];
+    [section04 setItems:dataSection04];
+    [section04 setTitle:@"Singers"];
+    [section04 setTitleColor:sectionTitleColor];
+    [section04 setTitleFont:sectionTitleFont];
+    [emTV addAccordionSection:section04];
+    
+    EMAccordionSection *section05 = [[EMAccordionSection alloc] init];
+    [section05 setBackgroundColor:sectionsColor];
+    [section05 setItems:dataSection05];
+    [section05 setTitle:@"Colors"];
+    [section05 setTitleColor:sectionTitleColor];
+    [section05 setTitleFont:sectionTitleFont];
+    [emTV addAccordionSection:section05];
+    
+    EMAccordionSection *section06 = [[EMAccordionSection alloc] init];
+    [section06 setBackgroundColor:sectionsColor];
+    [section06 setItems:dataSection06];
+    [section06 setTitle:@"Nations"];
+    [section06 setTitleColor:sectionTitleColor];
+    [section06 setTitleFont:sectionTitleFont];
+    [emTV addAccordionSection:section06];
+    
+    sections = [[NSArray alloc] initWithObjects:section01, section02, section03, section04, section05, section06, nil];
     
     [self.view addSubview:emTV.tableView];
 }
@@ -107,6 +140,14 @@
     return cell;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0)
+        return 50.0f;
+    else if (indexPath.row == 1)
+        return 70.0f;
+    return 100.0f;
+}
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EMAccordionSection *section = [sections objectAtIndex:indexPath.section];
     NSMutableArray *items = [self dataFromIndexPath:indexPath];
@@ -118,8 +159,17 @@
 - (NSMutableArray *) dataFromIndexPath: (NSIndexPath *)indexPath {
     if (indexPath.section == 0)
         return dataSection01;
-    else
+    else if (indexPath.section == 1)
         return dataSection02;
+    else if (indexPath.section == 2)
+        return dataSection03;
+    else if (indexPath.section == 3)
+        return dataSection04;
+    else if (indexPath.section == 4)
+        return dataSection05;
+    else if (indexPath.section == 5)
+        return dataSection06;
+    return NULL;
 }
 
 @end
