@@ -35,7 +35,7 @@ $ open YourOwnProject.xcworkspace
 ```
 
 ### Source Code
-Alternatively you can just copy all the files included in the folder [EMAccordionTable](https://githubcom/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTableViewController/EMAccordionTableViewController/Classes/EMAccordionTable) and start playing with it!
+Alternatively you can just copy all the files included in the folder [EMAccordionTable](https://github.com/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTable) and start playing with it!
 
 
 ## How it works?
