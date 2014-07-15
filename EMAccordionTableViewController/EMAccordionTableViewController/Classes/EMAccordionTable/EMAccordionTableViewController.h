@@ -10,6 +10,11 @@
 
 #import "EMAccordionSection.h"
 
+typedef NS_ENUM(NSUInteger, EMAnimationType) {
+    EMAnimationTypeNone,
+    EMAnimationTypeBounce,
+};
+
 @protocol EMAccordionTableDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -22,7 +27,7 @@
 @property (nonatomic, strong) UIImage * openedSectionIcon;
 @property (nonatomic, strong) UITableView *tableView;
 
-- (id) initWithTable:(UITableView *)tableView;
+- (id) initWithTable:(UITableView *)tableView withAnimationType:(EMAnimationType) type;
 
 - (void) addAccordionSection: (EMAccordionSection *) section;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;

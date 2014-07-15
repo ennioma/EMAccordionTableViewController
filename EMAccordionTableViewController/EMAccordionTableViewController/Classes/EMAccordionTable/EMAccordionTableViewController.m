@@ -7,6 +7,7 @@
 //
 
 #import "EMAccordionTableViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kSectionTag 1110
 
@@ -18,6 +19,9 @@
     NSMutableArray *sectionsOpened;
     
     NSObject <EMAccordionTableDelegate> *emDelegate;
+    
+    NSUInteger openedSection;
+    EMAnimationType animationType;
 }
 
 @end
@@ -47,7 +51,7 @@
     [self.view addSubview:_tableView];
 }
 
-- (id) initWithTable:(UITableView *)tableView {
+- (id) initWithTable:(UITableView *)tableView withAnimationType:(EMAnimationType) type {
     if (self = [super init]) {
         self.view = [[UIView alloc] initWithFrame:tableView.frame];
         
@@ -55,8 +59,10 @@
         [_tableView setDataSource:self];
         [_tableView setDelegate:self];
         
+        animationType = type;
         sections = [[NSMutableArray alloc] initWithCapacity:0];
         sectionsOpened = [[NSMutableArray alloc] initWithCapacity:0];
+        openedSection = -1;
     }
     
     return self;
@@ -99,6 +105,24 @@
     return NULL;
 }
 
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+        if (indexPath.section == openedSection && animationType != EMAnimationTypeNone) {
+            CGPoint offsetPositioning = CGPointMake(cell.frame.size.width / 2.0f, 20.0f);
+            CATransform3D transform = CATransform3DIdentity;
+            transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
+            
+            UIView *card = (UITableViewCell * )cell ;
+            card.layer.transform = transform;
+
+            card.layer.opacity = 0.5;
+            
+            [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.2f initialSpringVelocity:0.2f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                card.layer.transform = CATransform3DIdentity;
+                card.layer.opacity = 1;
+            } completion:NULL];
+        }
+}
+
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([emDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
         return [emDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
@@ -113,7 +137,6 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     EMAccordionSection *emAccordionSection = [sections objectAtIndex:section];
-    
     
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, tableView.sectionHeaderHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
@@ -160,6 +183,8 @@
     
     [sectionsOpened setObject:updatedValue atIndexedSubscript:index];
     
+    openedSection = index;
+
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

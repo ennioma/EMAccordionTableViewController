@@ -46,7 +46,7 @@
      */
     
     // Setup the EMAccordionTableViewController
-    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView];
+    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView withAnimationType:EMAnimationTypeBounce];
     [emTV setDelegate:self];
     
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];

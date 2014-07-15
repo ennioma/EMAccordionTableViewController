@@ -26,6 +26,7 @@
 		6D2D90511880166F00767A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904E1880166F00767A45 /* ViewController.m */; };
 		6D2EB86A1880619600234978 /* closedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8681880619600234978 /* closedIcon.png */; };
 		6D2EB86B1880619600234978 /* openedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8691880619600234978 /* openedIcon.png */; };
+		6D8C609B19752016001F823F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C609A19752016001F823F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		6D2D904E1880166F00767A45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2EB8681880619600234978 /* closedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closedIcon.png; sourceTree = "<group>"; };
 		6D2EB8691880619600234978 /* openedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openedIcon.png; sourceTree = "<group>"; };
+		6D8C609A19752016001F823F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D8C609B19752016001F823F /* QuartzCore.framework in Frameworks */,
 				6D2D900A1880160500767A45 /* UIKit.framework in Frameworks */,
 				6D2D900C1880160500767A45 /* Foundation.framework in Frameworks */,
 				6D2D900E1880160500767A45 /* CoreGraphics.framework in Frameworks */,
@@ -114,6 +117,7 @@
 		6D2D90081880160500767A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D8C609A19752016001F823F /* QuartzCore.framework */,
 				6D2D90091880160500767A45 /* UIKit.framework */,
 				6D2D900B1880160500767A45 /* Foundation.framework */,
 				6D2D900D1880160500767A45 /* CoreGraphics.framework */,
