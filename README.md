@@ -1,14 +1,13 @@
 EMAccordionTableViewController
 ==============================
-![](https://dl.dropboxusercontent.com/u/37783784/EMAccordionTableViewController/iPhone.png)
-![](https://dl.dropboxusercontent.com/u/37783784/EMAccordionTableViewController/iPad.png)
+![](https://dl.dropboxusercontent.com/u/37783784/EMAccordionTableViewController.gif)
 
 EMAccordionTableViewController is a easy to use Expandable / Collapsable UITableView for iOS. Under the hood it works as a proxy for the UITableView and leaves
 to the delegate the responsability to implement tableView:cellForRowAtIndexPath and tableView:didSelectRowAtIndexPath.
 
 * Built to be Universal
 * Uses ARC (Automatic Reference Counting)
-* Support iOS > 5.0
+* Support iOS > 6.0
 * Support rotation
 * Completely reusable component
 
@@ -16,8 +15,28 @@ to the delegate the responsability to implement tableView:cellForRowAtIndexPath 
 * [my Soldier for Battlefield 4](https://itunes.apple.com/us/app/my-soldier-for-battlefield-4/id718845676)
 
 ## How to install it?
+### CocoaPods
+The recommended approach is to install `EMAccordionTableViewController` via [CocoaPods](http://cocoapods.org/).
 
-Simply copy all the files included in the folder [EMAccordionTable](https://githubcom/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTableViewController/EMAccordionTableViewController/Classes/EMAccordionTable) and start playing with it!
+``` bash
+platform :ios, '6.0'
+pod 'EMAccordionTableViewController', '~> 0.4'
+```
+
+And then install running
+``` bash
+$ pod install
+```
+
+And now open the project in Xcode from the .xcworkspace file, not from the project file
+
+``` bash
+$ open YourOwnProject.xcworkspace
+```
+
+### Source Code
+Alternatively you can just copy all the files included in the folder [EMAccordionTable](https://githubcom/ennioma/EMAccordionTableViewController/tree/master/EMAccordionTableViewController/EMAccordionTableViewController/Classes/EMAccordionTable) and start playing with it!
+
 
 ## How it works?
 ### EMAccordionTableViewController Class
@@ -64,7 +83,7 @@ Simply copy all the files included in the folder [EMAccordionTable](https://gith
      */
     
     // Setup the EMAccordionTableViewController
-    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView];
+    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView withAnimationType:EMAnimationTypeBounce];
     [emTV setDelegate:self];
     
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];
