@@ -12,7 +12,6 @@
 #define kSectionTag 1110
 
 @interface EMAccordionTableViewController () {
-//    CGFloat headerHeight;
     UITableViewStyle emTableStyle;
     
     NSMutableArray *sections;
