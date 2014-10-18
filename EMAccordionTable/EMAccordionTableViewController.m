@@ -175,7 +175,7 @@
 
 
 - (IBAction)openTheSection:(id)sender {
-    int index = [sender tag] - kSectionTag;
+    int index = (int)[sender tag] - kSectionTag;
     
     BOOL value = [[sectionsOpened objectAtIndex:index] boolValue];
     NSNumber *updatedValue = [NSNumber numberWithBool:!value];
