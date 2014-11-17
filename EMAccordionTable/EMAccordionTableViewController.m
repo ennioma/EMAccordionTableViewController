@@ -76,10 +76,6 @@
     [sectionsOpened addObject:[NSNumber numberWithInt:0]];
 }
 
-//- (void) setHeaderHeight:(CGFloat)height {
-//    headerHeight = height;
-//}
-
 #pragma mark UITableViewDataSource
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return sections.count;
@@ -105,21 +101,21 @@
 }
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-        if (indexPath.section == openedSection && animationType != EMAnimationTypeNone) {
-            CGPoint offsetPositioning = CGPointMake(cell.frame.size.width / 2.0f, 20.0f);
-            CATransform3D transform = CATransform3DIdentity;
-            transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
-            
-            UIView *card = (UITableViewCell * )cell ;
-            card.layer.transform = transform;
-
-            card.layer.opacity = 0.5;
-            
-            [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.2f initialSpringVelocity:0.2f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                card.layer.transform = CATransform3DIdentity;
-                card.layer.opacity = 1;
-            } completion:NULL];
-        }
+    if (indexPath.section == openedSection && animationType != EMAnimationTypeNone) {
+        CGPoint offsetPositioning = CGPointMake(cell.frame.size.width / 2.0f, 20.0f);
+        CATransform3D transform = CATransform3DIdentity;
+        transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
+        
+        UIView *card = (UITableViewCell * )cell ;
+        card.layer.transform = transform;
+        
+        card.layer.opacity = 0.5;
+        
+        [UIView animateWithDuration:0.5f delay:0.0f usingSpringWithDamping:0.2f initialSpringVelocity:0.2f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            card.layer.transform = CATransform3DIdentity;
+            card.layer.opacity = 1;
+        } completion:NULL];
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

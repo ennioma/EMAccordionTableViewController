@@ -35,11 +35,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     // Setup the EMAccordionTableViewController
-    origin = 20.0f;
-    if ([[UIDevice currentDevice].model hasPrefix:@"iPad"])
-        origin = 100.0f;
-  
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(origin, origin, self.view.bounds.size.width - origin*2, self.view.bounds.size.height - origin*2) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
     [tableView setSectionHeaderHeight:kTableHeaderHeight];
     /*
      ... set here some other tableView properties ...
@@ -141,11 +137,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0)
-        return 50.0f;
-    else if (indexPath.row == 1)
-        return 70.0f;
-    return 100.0f;
+    return kTableRowHeight;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

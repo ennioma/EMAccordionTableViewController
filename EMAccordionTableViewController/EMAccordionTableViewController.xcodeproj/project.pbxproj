@@ -239,7 +239,7 @@
 			name = EMAccordionTableViewControllerTests;
 			productName = EMAccordionTableViewControllerTests;
 			productReference = 6D2D902F1880160500767A45 /* EMAccordionTableViewControllerTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
