@@ -5,6 +5,8 @@ EMAccordionTableViewController
 EMAccordionTableViewController is a easy to use Expandable / Collapsable UITableView for iOS. Under the hood it works as a proxy for the UITableView and leaves
 to the delegate the responsability to implement tableView:cellForRowAtIndexPath and tableView:didSelectRowAtIndexPath.
 
+Update: Now it support the header view with parallax effect. I have used UIImage+ImageEffects from wwdc2013 to support the blur.
+
 * Built to be Universal
 * Uses ARC (Automatic Reference Counting)
 * Support iOS > 6.0
@@ -88,6 +90,11 @@ Alternatively you can just copy all the files included in the folder [EMAccordio
     
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];
     [emTV setOpenedSectionIcon:[UIImage imageNamed:@"openedIcon"]];
+
+    // If you want to set the parallax header view
+    emParallaxHeaderView = [[EMAccordionTableParallaxHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.bounds.size.width, 200.0f)];
+    emParallaxHeaderView.headerImage = [UIImage imageNamed:@"naples"];
+    emTV.parallaxHeaderView = emParallaxHeaderView;
     
     // Setup some test data
     dataSection01 = [[NSMutableArray alloc] initWithObjects:@"Dog", @"Cat", @"Pig", nil];
