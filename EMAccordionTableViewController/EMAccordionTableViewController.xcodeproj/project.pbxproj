@@ -27,6 +27,10 @@
 		6D8C609B19752016001F823F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C609A19752016001F823F /* QuartzCore.framework */; };
 		6D8C60A119752E7D001F823F /* EMAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C609E19752E7D001F823F /* EMAccordionSection.m */; };
 		6D8C60A219752E7D001F823F /* EMAccordionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */; };
+		6DD3635F1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */; };
+		6DD363611A30BEE20015C377 /* naples.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD363601A30BEE20015C377 /* naples.png */; };
+		6DFE78871A31C98500BA1EC4 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFE78861A31C98500BA1EC4 /* UIImage+ImageEffects.m */; };
+		6DFE78891A31C9F000BA1EC4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFE78881A31C9F000BA1EC4 /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,12 @@
 		6D8C609E19752E7D001F823F /* EMAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionSection.m; sourceTree = "<group>"; };
 		6D8C609F19752E7D001F823F /* EMAccordionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewController.h; sourceTree = "<group>"; };
 		6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewController.m; sourceTree = "<group>"; };
+		6DD3635D1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableParallaxHeaderView.h; sourceTree = "<group>"; };
+		6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableParallaxHeaderView.m; sourceTree = "<group>"; };
+		6DD363601A30BEE20015C377 /* naples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naples.png; sourceTree = "<group>"; };
+		6DFE78851A31C98500BA1EC4 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		6DFE78861A31C98500BA1EC4 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		6DFE78881A31C9F000BA1EC4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DFE78891A31C9F000BA1EC4 /* Accelerate.framework in Frameworks */,
 				6D8C609B19752016001F823F /* QuartzCore.framework in Frameworks */,
 				6D2D900A1880160500767A45 /* UIKit.framework in Frameworks */,
 				6D2D900C1880160500767A45 /* Foundation.framework in Frameworks */,
@@ -117,6 +128,7 @@
 		6D2D90081880160500767A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DFE78881A31C9F000BA1EC4 /* Accelerate.framework */,
 				6D8C609A19752016001F823F /* QuartzCore.framework */,
 				6D2D90091880160500767A45 /* UIKit.framework */,
 				6D2D900B1880160500767A45 /* Foundation.framework */,
@@ -184,6 +196,7 @@
 		6D2EB8671880619600234978 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6DD363601A30BEE20015C377 /* naples.png */,
 				6D2EB8681880619600234978 /* closedIcon.png */,
 				6D2EB8691880619600234978 /* openedIcon.png */,
 			);
@@ -193,13 +206,25 @@
 		6D8C609C19752E7D001F823F /* EMAccordionTable */ = {
 			isa = PBXGroup;
 			children = (
+				6DFE78841A31C97700BA1EC4 /* UIImage+ImageEffects */,
 				6D8C609D19752E7D001F823F /* EMAccordionSection.h */,
 				6D8C609E19752E7D001F823F /* EMAccordionSection.m */,
+				6DD3635D1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.h */,
+				6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */,
 				6D8C609F19752E7D001F823F /* EMAccordionTableViewController.h */,
 				6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */,
 			);
 			name = EMAccordionTable;
 			path = ../../../EMAccordionTable;
+			sourceTree = "<group>";
+		};
+		6DFE78841A31C97700BA1EC4 /* UIImage+ImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				6DFE78851A31C98500BA1EC4 /* UIImage+ImageEffects.h */,
+				6DFE78861A31C98500BA1EC4 /* UIImage+ImageEffects.m */,
+			);
+			path = "UIImage+ImageEffects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +300,7 @@
 			files = (
 				6D2D90141880160500767A45 /* InfoPlist.strings in Resources */,
 				6D2D901C1880160500767A45 /* Default.png in Resources */,
+				6DD363611A30BEE20015C377 /* naples.png in Resources */,
 				6D2D901E1880160500767A45 /* Default@2x.png in Resources */,
 				6D2D90201880160500767A45 /* Default-568h@2x.png in Resources */,
 				6D2EB86A1880619600234978 /* closedIcon.png in Resources */,
@@ -313,7 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DD3635F1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m in Sources */,
 				6D8C60A119752E7D001F823F /* EMAccordionSection.m in Sources */,
+				6DFE78871A31C98500BA1EC4 /* UIImage+ImageEffects.m in Sources */,
 				6D2D90161880160500767A45 /* main.m in Sources */,
 				6D2D901A1880160500767A45 /* AppDelegate.m in Sources */,
 				6D8C60A219752E7D001F823F /* EMAccordionTableViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "EMAccordionSection.h"
+#import "EMAccordionTableParallaxHeaderView.h"
 
 typedef NS_ENUM(NSUInteger, EMAnimationType) {
     EMAnimationTypeNone,
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSUInteger, EMAnimationType) {
 @property (nonatomic, strong) UIImage * closedSectionIcon;
 @property (nonatomic, strong) UIImage * openedSectionIcon;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) EMAccordionTableParallaxHeaderView *parallaxHeaderView;
 
 - (id) initWithTable:(UITableView *)tableView withAnimationType:(EMAnimationType) type;
 

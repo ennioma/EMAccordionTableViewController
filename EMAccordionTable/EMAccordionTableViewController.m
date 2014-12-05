@@ -7,6 +7,8 @@
 //
 
 #import "EMAccordionTableViewController.h"
+#import "EMAccordionTableParallaxHeaderView.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 #define kSectionTag 1110
@@ -29,6 +31,7 @@
 
 @synthesize closedSectionIcon = _closedSectionIcon;
 @synthesize openedSectionIcon = _openedSectionIcon;
+@synthesize parallaxHeaderView = _parallaxHeaderView;
 @synthesize tableView = _tableView;
 
 - (void)viewDidLoad {
@@ -74,6 +77,14 @@
 - (void) addAccordionSection: (EMAccordionSection *) section {
     [sections addObject:section];
     [sectionsOpened addObject:[NSNumber numberWithInt:0]];
+}
+
+- (void) setParallaxHeaderView:(EMAccordionTableParallaxHeaderView *)parallaxHeaderView {
+    _parallaxHeaderView = parallaxHeaderView;
+    
+    if (_tableView) {
+        [_tableView setTableHeaderView:_parallaxHeaderView];
+    }
 }
 
 #pragma mark UITableViewDataSource
@@ -181,6 +192,10 @@
     openedSection = index;
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.parallaxHeaderView updateLayout:scrollView];
 }
 
 @end

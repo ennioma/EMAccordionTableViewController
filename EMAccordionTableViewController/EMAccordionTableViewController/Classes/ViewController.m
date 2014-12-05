@@ -13,6 +13,7 @@
 
 @interface ViewController () {
     EMAccordionTableViewController *emTV;
+    EMAccordionTableParallaxHeaderView *emParallaxHeaderView;
 }
 
 @end
@@ -24,6 +25,7 @@
     NSMutableArray *dataSection04;
     NSMutableArray *dataSection05;
     NSMutableArray *dataSection06;
+    NSMutableArray *dataSection07;
     
     NSArray *sections;
     CGFloat origin;
@@ -44,7 +46,10 @@
     // Setup the EMAccordionTableViewController
     emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView withAnimationType:EMAnimationTypeBounce];
     [emTV setDelegate:self];
-    
+    emParallaxHeaderView = [[EMAccordionTableParallaxHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.bounds.size.width, 200.0f)];
+    emParallaxHeaderView.headerImage = [UIImage imageNamed:@"naples"];
+    emTV.parallaxHeaderView = emParallaxHeaderView;
+
     [emTV setClosedSectionIcon:[UIImage imageNamed:@"closedIcon"]];
     [emTV setOpenedSectionIcon:[UIImage imageNamed:@"openedIcon"]];
     
@@ -55,6 +60,7 @@
     dataSection04 = [[NSMutableArray alloc] initWithObjects:@"Adele", @"Arisa", @"Clementino", nil];
     dataSection05 = [[NSMutableArray alloc] initWithObjects:@"Red", @"Orange", @"Blue", @"Yello", @"Black", nil];
     dataSection06 = [[NSMutableArray alloc] initWithObjects:@"Italy", @"Spain", @"Ireland", @"Scotland", @"Poland", nil];
+    dataSection07 = [[NSMutableArray alloc] initWithObjects:@"Pizza", @"Mozzarella", nil];
     //
     
     // Section graphics
@@ -111,7 +117,15 @@
     [section06 setTitleFont:sectionTitleFont];
     [emTV addAccordionSection:section06];
     
-    sections = [[NSArray alloc] initWithObjects:section01, section02, section03, section04, section05, section06, nil];
+    EMAccordionSection *section07 = [[EMAccordionSection alloc] init];
+    [section07 setBackgroundColor:sectionsColor];
+    [section07 setItems:dataSection06];
+    [section07 setTitle:@"Recipes"];
+    [section07 setTitleColor:sectionTitleColor];
+    [section07 setTitleFont:sectionTitleFont];
+    [emTV addAccordionSection:section07];
+    
+    sections = [[NSArray alloc] initWithObjects:section01, section02, section03, section04, section05, section06, section07, nil];
     
     [self.view addSubview:emTV.tableView];
 }
@@ -161,6 +175,8 @@
         return dataSection05;
     else if (indexPath.section == 5)
         return dataSection06;
+    else if (indexPath.section == 6)
+        return dataSection07;
     return NULL;
 }
 
