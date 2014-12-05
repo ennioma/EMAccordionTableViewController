@@ -1,6 +1,6 @@
 EMAccordionTableViewController
 ==============================
-![](https://dl.dropboxusercontent.com/u/37783784/EMAccordionTableViewController.gif)
+![](https://dl.dropboxusercontent.com/u/37783784/EMAccordionTableViewControllerParallax.gif)
 
 EMAccordionTableViewController is a easy to use Expandable / Collapsable UITableView for iOS. Under the hood it works as a proxy for the UITableView and leaves
 to the delegate the responsability to implement tableView:cellForRowAtIndexPath and tableView:didSelectRowAtIndexPath.
