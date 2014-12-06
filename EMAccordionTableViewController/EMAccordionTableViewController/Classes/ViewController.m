@@ -119,7 +119,7 @@
     
     EMAccordionSection *section07 = [[EMAccordionSection alloc] init];
     [section07 setBackgroundColor:sectionsColor];
-    [section07 setItems:dataSection06];
+    [section07 setItems:dataSection07];
     [section07 setTitle:@"Recipes"];
     [section07 setTitleColor:sectionTitleColor];
     [section07 setTitleFont:sectionTitleFont];
