@@ -21,12 +21,12 @@
 		6D2D90331880160500767A45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D900B1880160500767A45 /* Foundation.framework */; };
 		6D2D903B1880160500767A45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D90391880160500767A45 /* InfoPlist.strings */; };
 		6D2D903E1880160500767A45 /* EMAccordionTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */; };
+		6D2D90511880166F00767A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904E1880166F00767A45 /* ViewController.m */; };
 		6D2EB86A1880619600234978 /* closedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8681880619600234978 /* closedIcon.png */; };
 		6D2EB86B1880619600234978 /* openedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8691880619600234978 /* openedIcon.png */; };
 		6D8C609B19752016001F823F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8C609A19752016001F823F /* QuartzCore.framework */; };
 		6D8C60A119752E7D001F823F /* EMAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C609E19752E7D001F823F /* EMAccordionSection.m */; };
 		6D8C60A219752E7D001F823F /* EMAccordionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */; };
-		6DABDA841A32F0DB001F8D7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DABDA831A32F0DB001F8D7B /* ViewController.m */; };
 		6DD3635F1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */; };
 		6DD363611A30BEE20015C377 /* naples.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD363601A30BEE20015C377 /* naples.png */; };
 		6DFE78871A31C98500BA1EC4 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFE78861A31C98500BA1EC4 /* UIImage+ImageEffects.m */; };
@@ -64,6 +64,7 @@
 		6D2D903C1880160500767A45 /* EMAccordionTableViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewControllerTests.h; sourceTree = "<group>"; };
 		6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewControllerTests.m; sourceTree = "<group>"; };
 		6D2D904D1880166F00767A45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6D2D904E1880166F00767A45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2EB8681880619600234978 /* closedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closedIcon.png; sourceTree = "<group>"; };
 		6D2EB8691880619600234978 /* openedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openedIcon.png; sourceTree = "<group>"; };
 		6D8C609A19752016001F823F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -71,7 +72,6 @@
 		6D8C609E19752E7D001F823F /* EMAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionSection.m; sourceTree = "<group>"; };
 		6D8C609F19752E7D001F823F /* EMAccordionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewController.h; sourceTree = "<group>"; };
 		6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewController.m; sourceTree = "<group>"; };
-		6DABDA831A32F0DB001F8D7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = EMAccordionTableViewController/Classes/ViewController.m; sourceTree = SOURCE_ROOT; };
 		6DD3635D1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableParallaxHeaderView.h; sourceTree = "<group>"; };
 		6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableParallaxHeaderView.m; sourceTree = "<group>"; };
 		6DD363601A30BEE20015C377 /* naples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naples.png; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			children = (
 				6D8C609C19752E7D001F823F /* EMAccordionTable */,
 				6D2D904D1880166F00767A45 /* ViewController.h */,
-				6DABDA831A32F0DB001F8D7B /* ViewController.m */,
+				6D2D904E1880166F00767A45 /* ViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -206,13 +206,13 @@
 		6D8C609C19752E7D001F823F /* EMAccordionTable */ = {
 			isa = PBXGroup;
 			children = (
+				6DFE78841A31C97700BA1EC4 /* UIImage+ImageEffects */,
 				6D8C609D19752E7D001F823F /* EMAccordionSection.h */,
 				6D8C609E19752E7D001F823F /* EMAccordionSection.m */,
 				6DD3635D1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.h */,
 				6DD3635E1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m */,
 				6D8C609F19752E7D001F823F /* EMAccordionTableViewController.h */,
 				6D8C60A019752E7D001F823F /* EMAccordionTableViewController.m */,
-				6DFE78841A31C97700BA1EC4 /* UIImage+ImageEffects */,
 			);
 			name = EMAccordionTable;
 			path = ../../../EMAccordionTable;
@@ -339,13 +339,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DABDA841A32F0DB001F8D7B /* ViewController.m in Sources */,
 				6DD3635F1A30BDCF0015C377 /* EMAccordionTableParallaxHeaderView.m in Sources */,
 				6D8C60A119752E7D001F823F /* EMAccordionSection.m in Sources */,
 				6DFE78871A31C98500BA1EC4 /* UIImage+ImageEffects.m in Sources */,
 				6D2D90161880160500767A45 /* main.m in Sources */,
 				6D2D901A1880160500767A45 /* AppDelegate.m in Sources */,
 				6D8C60A219752E7D001F823F /* EMAccordionTableViewController.m in Sources */,
+				6D2D90511880166F00767A45 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
