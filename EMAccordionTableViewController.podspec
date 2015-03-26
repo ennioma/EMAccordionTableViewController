@@ -6,12 +6,12 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'APACHE',
                      :file => 'LICENSE' }
   s.authors      = { 'Ennio Masi' => 'ennio.masi@gmail.com' }
-  s.source       = { :git => 'https://github.com/ennioma/EMAccordionTableViewController.git',
-                     :tag => s.version.to_s }
+  s.source       = { :git => 'https://github.com/ennioma/EMAccordionTableViewController.git', :tag => s.version.to_s }
   s.platform     = :ios, '6.0'
   s.source_files = 'EMAccordionTable'
   s.ios.frameworks   = 'CoreGraphics', 'QuartzCore'
   s.ios.deployment_target = '6.0'
   s.requires_arc = true
   s.social_media_url = 'https://twitter.com/ennioma'
+  s.prefix_header_contents = ''
 end
