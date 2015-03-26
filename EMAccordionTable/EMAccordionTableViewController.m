@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kSectionTag 1110
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 @interface EMAccordionTableViewController () {
     UITableViewStyle emTableStyle;
@@ -23,6 +24,8 @@
     
     NSUInteger openedSection;
     EMAnimationType animationType;
+    
+    NSInteger showedCell;
 }
 
 @end
@@ -33,9 +36,12 @@
 @synthesize openedSectionIcon = _openedSectionIcon;
 @synthesize parallaxHeaderView = _parallaxHeaderView;
 @synthesize tableView = _tableView;
+@synthesize sectionsHeaders = _sectionsHeaders;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    showedCell = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +71,8 @@
         sections = [[NSMutableArray alloc] initWithCapacity:0];
         sectionsOpened = [[NSMutableArray alloc] initWithCapacity:0];
         openedSection = -1;
+        
+        self.sectionsHeaders = [[NSMutableArray alloc] initWithCapacity:0];
     }
     
     return self;
@@ -168,6 +176,11 @@
     
     [sectionView addSubview:accessoryIV];
     
+    [self.sectionsHeaders insertObject:sectionView atIndex:section];
+
+    if ([emDelegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
+        return [emDelegate tableView:tableView viewForHeaderInSection:section];
+    
     return sectionView;
 }
 
@@ -192,10 +205,37 @@
     openedSection = index;
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    if (!value)
+        [self showCellsWithAnimation];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.parallaxHeaderView updateLayout:scrollView];
+}
+
+- (void) showCellsWithAnimation {
+    NSArray *cells = self.tableView.visibleCells;
+    
+    if (showedCell >= cells.count)
+        return;
+//    for (UIView *card in cells) {
+    
+    UIView *card = [cells objectAtIndex:showedCell];
+    
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
+    rotationAndPerspectiveTransform.m34 = 1.0 / -200.0;
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(90), 1.0f, 0.0f, 0.0f);
+    card.layer.transform = rotationAndPerspectiveTransform;
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(-90), 1.0f, 0.0f, 0.0f);
+    [UIView animateWithDuration:.4 animations:^{
+        card.alpha = 1.0f;
+        card.layer.transform = rotationAndPerspectiveTransform;
+    } completion:^(BOOL finished){
+        showedCell++;
+        [self showCellsWithAnimation];
+    }];
+//    }
 }
 
 @end

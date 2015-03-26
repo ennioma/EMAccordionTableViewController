@@ -147,6 +147,8 @@
     
     [[cell contentView] addSubview:titleLbl];
     
+    cell.alpha = 0.0f;
+    
     return cell;
 }
 

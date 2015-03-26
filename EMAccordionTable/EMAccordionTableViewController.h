@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, EMAnimationType) {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 @end
 
 @interface EMAccordionTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
@@ -28,6 +29,7 @@ typedef NS_ENUM(NSUInteger, EMAnimationType) {
 @property (nonatomic, strong) UIImage * openedSectionIcon;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) EMAccordionTableParallaxHeaderView *parallaxHeaderView;
+@property (nonatomic, strong) NSMutableArray *sectionsHeaders;
 
 - (id) initWithTable:(UITableView *)tableView withAnimationType:(EMAnimationType) type;
 
