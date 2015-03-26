@@ -61,12 +61,11 @@ Alternatively you can just copy all the files included in the folder [EMAccordio
 ```
     
 ### EMAccordionTableDelegate Protocol
-
-```objective-c
 @protocol EMAccordionTableDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 @end
 
 ```
