@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'EMAccordionTableViewController'
-  s.version      = '0.5.1'
+  s.version      = '0.5.2'
   s.summary      = 'EMAccordionTableViewController is a Expandable / Collapsable UITableView.'
   s.homepage     = 'https://github.com/ennioma/EMAccordionTableViewController'
   s.license      = { :type => 'APACHE',
