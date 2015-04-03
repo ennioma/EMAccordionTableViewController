@@ -68,6 +68,8 @@
     UIColor *sectionTitleColor = [UIColor whiteColor];
     UIFont *sectionTitleFont = [UIFont fontWithName:@"Futura" size:24.0f];
 
+    emTV.defaultOpenedSection = 5;
+    
     // Add the sections to the controller
     EMAccordionSection *section01 = [[EMAccordionSection alloc] init];
     [section01 setBackgroundColor:sectionsColor];

@@ -37,6 +37,7 @@
 @synthesize parallaxHeaderView = _parallaxHeaderView;
 @synthesize tableView = _tableView;
 @synthesize sectionsHeaders = _sectionsHeaders;
+@synthesize defaultOpenedSection = _defaultOpenedSection;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,7 +85,14 @@
 
 - (void) addAccordionSection: (EMAccordionSection *) section {
     [sections addObject:section];
-    [sectionsOpened addObject:[NSNumber numberWithInt:0]];
+
+    NSInteger index = sections.count - 1;
+    
+    [sectionsOpened addObject:[NSNumber numberWithBool:NO]];
+    if (index == self.defaultOpenedSection) {
+        [sectionsOpened setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:index];
+    }
+    
 }
 
 - (void) setParallaxHeaderView:(EMAccordionTableParallaxHeaderView *)parallaxHeaderView {
