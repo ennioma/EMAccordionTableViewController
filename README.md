@@ -68,10 +68,9 @@ Alternatively you can just copy all the files included in the folder [EMAccordio
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 @end
 
-```
-
 ## How to use it?
 ### Example
+```
     // Setup the EMAccordionTableViewController
     origin = 20.0f;
     if ([[UIDevice currentDevice].model hasPrefix:@"iPad"])
@@ -132,7 +131,7 @@ Alternatively you can just copy all the files included in the folder [EMAccordio
     sections = [[NSArray alloc] initWithObjects:section01, section02, section03, nil];
     
     [self.view addSubview:emTV.tableView];
-
+```
 
 ## Help me improving this!
 How? Simply feel free to fork the project and improve it!
