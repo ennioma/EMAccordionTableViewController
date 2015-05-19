@@ -77,7 +77,7 @@
     [section01 setTitle:@"Animals"];
     [section01 setTitleFont:sectionTitleFont];
     [section01 setTitleColor:sectionTitleColor];
-    [emTV addAccordionSection:section01];
+    [emTV addAccordionSection:section01 initiallyOpened:YES];
     
     EMAccordionSection *section02 = [[EMAccordionSection alloc] init];
     [section02 setBackgroundColor:sectionsColor];
@@ -85,7 +85,7 @@
     [section02 setTitle:@"Tennis players"];
     [section02 setTitleColor:sectionTitleColor];
     [section02 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section02];
+    [emTV addAccordionSection:section02 initiallyOpened:NO];
     
     EMAccordionSection *section03 = [[EMAccordionSection alloc] init];
     [section03 setBackgroundColor:sectionsColor];
@@ -93,7 +93,7 @@
     [section03 setTitle:@"Cities"];
     [section03 setTitleColor:sectionTitleColor];
     [section03 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section03];
+    [emTV addAccordionSection:section03 initiallyOpened:YES];
     
     EMAccordionSection *section04 = [[EMAccordionSection alloc] init];
     [section04 setBackgroundColor:sectionsColor];
@@ -101,7 +101,7 @@
     [section04 setTitle:@"Singers"];
     [section04 setTitleColor:sectionTitleColor];
     [section04 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section04];
+    [emTV addAccordionSection:section04 initiallyOpened:NO];
     
     EMAccordionSection *section05 = [[EMAccordionSection alloc] init];
     [section05 setBackgroundColor:sectionsColor];
@@ -109,7 +109,7 @@
     [section05 setTitle:@"Colors"];
     [section05 setTitleColor:sectionTitleColor];
     [section05 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section05];
+    [emTV addAccordionSection:section05 initiallyOpened:YES];
     
     EMAccordionSection *section06 = [[EMAccordionSection alloc] init];
     [section06 setBackgroundColor:sectionsColor];
@@ -117,7 +117,7 @@
     [section06 setTitle:@"Nations"];
     [section06 setTitleColor:sectionTitleColor];
     [section06 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section06];
+    [emTV addAccordionSection:section06 initiallyOpened:YES];
     
     EMAccordionSection *section07 = [[EMAccordionSection alloc] init];
     [section07 setBackgroundColor:sectionsColor];
@@ -125,7 +125,7 @@
     [section07 setTitle:@"Recipes"];
     [section07 setTitleColor:sectionTitleColor];
     [section07 setTitleFont:sectionTitleFont];
-    [emTV addAccordionSection:section07];
+    [emTV addAccordionSection:section07 initiallyOpened:YES];
     
     sections = [[NSArray alloc] initWithObjects:section01, section02, section03, section04, section05, section06, section07, nil];
     
@@ -182,6 +182,10 @@
     else if (indexPath.section == 6)
         return dataSection07;
     return NULL;
+}
+
+- (void) latestSectionOpened {
+    NSLog(@"section opened");
 }
 
 @end

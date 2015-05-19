@@ -83,12 +83,12 @@
     emDelegate = delegate;
 }
 
-- (void) addAccordionSection: (EMAccordionSection *) section {
+- (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened {
     [sections addObject:section];
 
     NSInteger index = sections.count - 1;
     
-    [sectionsOpened addObject:[NSNumber numberWithBool:NO]];
+    [sectionsOpened addObject:[NSNumber numberWithBool:opened]];
     if (index == self.defaultOpenedSection) {
         [sectionsOpened setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:index];
     }
@@ -216,6 +216,8 @@
     
     if (!value)
         [self showCellsWithAnimation];
+    
+    [emDelegate latestSectionOpened];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
