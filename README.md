@@ -22,7 +22,7 @@ The recommended approach is to install `EMAccordionTableViewController` via [Coc
 
 ``` bash
 platform :ios, '6.0'
-pod 'EMAccordionTableViewController', '~> 0.5.1'
+pod 'EMAccordionTableViewController', '~> 0.5.4'
 ```
 
 And then install running
