@@ -172,6 +172,7 @@
     [cellTitle setText:emAccordionSection.title];
     [cellTitle setTextColor:emAccordionSection.titleColor];
     [cellTitle setBackgroundColor:[UIColor clearColor]];
+    [cellTitle setFont:emAccordionSection.titleFont];
     [sectionView addSubview:cellTitle];
     
     UIImageView *accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
