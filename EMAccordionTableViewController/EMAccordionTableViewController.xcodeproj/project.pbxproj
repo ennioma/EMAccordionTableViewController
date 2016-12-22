@@ -16,11 +16,8 @@
 		6D2D901C1880160500767A45 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901B1880160500767A45 /* Default.png */; };
 		6D2D901E1880160500767A45 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901D1880160500767A45 /* Default@2x.png */; };
 		6D2D90201880160500767A45 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D901F1880160500767A45 /* Default-568h@2x.png */; };
-		6D2D90311880160500767A45 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D90301880160500767A45 /* SenTestingKit.framework */; };
 		6D2D90321880160500767A45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D90091880160500767A45 /* UIKit.framework */; };
 		6D2D90331880160500767A45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D900B1880160500767A45 /* Foundation.framework */; };
-		6D2D903B1880160500767A45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D2D90391880160500767A45 /* InfoPlist.strings */; };
-		6D2D903E1880160500767A45 /* EMAccordionTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */; };
 		6D2D90511880166F00767A45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D904E1880166F00767A45 /* ViewController.m */; };
 		6D2EB86A1880619600234978 /* closedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8681880619600234978 /* closedIcon.png */; };
 		6D2EB86B1880619600234978 /* openedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D2EB8691880619600234978 /* openedIcon.png */; };
@@ -58,11 +55,6 @@
 		6D2D901D1880160500767A45 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6D2D901F1880160500767A45 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6D2D902F1880160500767A45 /* EMAccordionTableViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EMAccordionTableViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D2D90301880160500767A45 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6D2D90381880160500767A45 /* EMAccordionTableViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EMAccordionTableViewControllerTests-Info.plist"; sourceTree = "<group>"; };
-		6D2D903A1880160500767A45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6D2D903C1880160500767A45 /* EMAccordionTableViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMAccordionTableViewControllerTests.h; sourceTree = "<group>"; };
-		6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMAccordionTableViewControllerTests.m; sourceTree = "<group>"; };
 		6D2D904D1880166F00767A45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D2D904E1880166F00767A45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2EB8681880619600234978 /* closedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closedIcon.png; sourceTree = "<group>"; };
@@ -97,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2D90311880160500767A45 /* SenTestingKit.framework in Frameworks */,
 				6D2D90321880160500767A45 /* UIKit.framework in Frameworks */,
 				6D2D90331880160500767A45 /* Foundation.framework in Frameworks */,
 			);
@@ -110,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				6D2D900F1880160500767A45 /* EMAccordionTableViewController */,
-				6D2D90361880160500767A45 /* EMAccordionTableViewControllerTests */,
 				6D2D90081880160500767A45 /* Frameworks */,
 				6D2D90071880160500767A45 /* Products */,
 			);
@@ -133,7 +123,6 @@
 				6D2D90091880160500767A45 /* UIKit.framework */,
 				6D2D900B1880160500767A45 /* Foundation.framework */,
 				6D2D900D1880160500767A45 /* CoreGraphics.framework */,
-				6D2D90301880160500767A45 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,25 +149,6 @@
 				6D2D901B1880160500767A45 /* Default.png */,
 				6D2D901D1880160500767A45 /* Default@2x.png */,
 				6D2D901F1880160500767A45 /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6D2D90361880160500767A45 /* EMAccordionTableViewControllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				6D2D903C1880160500767A45 /* EMAccordionTableViewControllerTests.h */,
-				6D2D903D1880160500767A45 /* EMAccordionTableViewControllerTests.m */,
-				6D2D90371880160500767A45 /* Supporting Files */,
-			);
-			path = EMAccordionTableViewControllerTests;
-			sourceTree = "<group>";
-		};
-		6D2D90371880160500767A45 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6D2D90381880160500767A45 /* EMAccordionTableViewControllerTests-Info.plist */,
-				6D2D90391880160500767A45 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -312,7 +282,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2D903B1880160500767A45 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2D903E1880160500767A45 /* EMAccordionTableViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,14 +340,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D2D90131880160500767A45 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6D2D90391880160500767A45 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D2D903A1880160500767A45 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
