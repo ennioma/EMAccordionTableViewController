@@ -1,9 +1,8 @@
 //
 //  EMAccordionTableViewController.m
-//  UChat
 //
 //  Created by Ennio Masi on 10/01/14.
-//  Copyright (c) 2014 Hippocrates Sintech. All rights reserved.
+//  Copyright (c) 2014 EnnioMa. All rights reserved.
 //
 
 #import "EMAccordionTableViewController.h"
@@ -19,9 +18,7 @@
     
     NSMutableArray *sections;
     NSMutableArray *sectionsOpened;
-    
-    NSObject <EMAccordionTableDelegate> *emDelegate;
-    
+
     NSUInteger openedSection;
     EMAnimationType animationType;
     
@@ -65,8 +62,8 @@
         self.view = [[UIView alloc] initWithFrame:tableView.frame];
         
         _tableView = tableView;
-        [_tableView setDataSource:self];
-        [_tableView setDelegate:self];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
         
         animationType = type;
         sections = [[NSMutableArray alloc] initWithCapacity:0];
@@ -77,10 +74,6 @@
     }
     
     return self;
-}
-
-- (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate {
-    emDelegate = delegate;
 }
 
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened {
@@ -119,8 +112,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([emDelegate respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)])
-        return [emDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
+    if ([self.emDelegate respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)])
+        return [self.emDelegate tableView:tableView cellForRowAtIndexPath:indexPath];
     else
         [NSException raise:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:" format:@"The delegate doesn't respond tableView:cellForRowAtIndexPath:"];
     
@@ -146,8 +139,8 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([emDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
-        return [emDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    if ([self.emDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+        return [self.emDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     else
         [NSException raise:@"The delegate doesn't respond tableView:didSelectRowAtIndexPath:" format:@"The delegate doesn't respond tableView:didSelectRowAtIndexPath:"];
 }
@@ -187,21 +180,20 @@
     
     [self.sectionsHeaders insertObject:sectionView atIndex:section];
 
-    if ([emDelegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
-        return [emDelegate tableView:tableView viewForHeaderInSection:section];
+    if ([self.emDelegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
+        return [self.emDelegate tableView:tableView viewForHeaderInSection:section];
     
     return sectionView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([emDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
-        return [emDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+    if ([self.emDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+        return [self.emDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
     else
         [NSException raise:@"The delegate doesn't respond ew:heightForRowAtIndexP:" format:@"The delegate doesn't respond ew:heightForRowAtIndexP:"];
     
     return 0.0;
 }
-
 
 - (IBAction)openTheSection:(id)sender {
     int index = (int)[sender tag] - kSectionTag;
@@ -214,39 +206,11 @@
     openedSection = index;
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    if (!value)
-        [self showCellsWithAnimation];
-    
-    [emDelegate latestSectionOpened];
+    [self.emDelegate latestSectionOpened];
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.parallaxHeaderView updateLayout:scrollView];
-}
-
-- (void) showCellsWithAnimation {
-    NSArray *cells = self.tableView.visibleCells;
-    
-    if (showedCell >= cells.count)
-        return;
-//    for (UIView *card in cells) {
-    
-    UIView *card = [cells objectAtIndex:showedCell];
-    
-    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
-    rotationAndPerspectiveTransform.m34 = 1.0 / -200.0;
-    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(90), 1.0f, 0.0f, 0.0f);
-    card.layer.transform = rotationAndPerspectiveTransform;
-    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(-90), 1.0f, 0.0f, 0.0f);
-    [UIView animateWithDuration:.4 animations:^{
-        card.alpha = 1.0f;
-        card.layer.transform = rotationAndPerspectiveTransform;
-    } completion:^(BOOL finished){
-        showedCell++;
-        [self showCellsWithAnimation];
-    }];
-//    }
 }
 
 @end

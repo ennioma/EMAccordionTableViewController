@@ -44,8 +44,8 @@
      */
     
     // Setup the EMAccordionTableViewController
-    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView withAnimationType:EMAnimationTypeBounce];
-    [emTV setDelegate:self];
+    emTV = [[EMAccordionTableViewController alloc] initWithTable:tableView withAnimationType:EMAnimationTypeNone];
+    emTV.emDelegate = self;
     emParallaxHeaderView = [[EMAccordionTableParallaxHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, tableView.bounds.size.width, 200.0f)];
     emParallaxHeaderView.headerImage = [UIImage imageNamed:@"naples"];
     emTV.parallaxHeaderView = emParallaxHeaderView;
