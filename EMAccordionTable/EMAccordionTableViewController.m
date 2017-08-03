@@ -83,6 +83,10 @@
     emDelegate = delegate;
 }
 
+-(void)removeAllSections{
+    [sections removeAllObjects];
+}
+
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened {
     [sections addObject:section];
 

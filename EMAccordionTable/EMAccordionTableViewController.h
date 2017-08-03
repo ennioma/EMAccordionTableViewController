@@ -37,5 +37,5 @@ typedef NS_ENUM(NSUInteger, EMAnimationType) {
 
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;
-
+-(void)removeAllSections;
 @end
