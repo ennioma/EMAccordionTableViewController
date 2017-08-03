@@ -216,8 +216,10 @@
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    if (!value)
+    if (!value){
         [self showCellsWithAnimation];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    }
     
     [emDelegate latestSectionOpened];
 }
