@@ -163,7 +163,8 @@
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, tableView.sectionHeaderHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
     
-    UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    //UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    UIButton *sectionBtn = [[UIButton alloc] initWithFrame:sectionView.frame];
     [sectionBtn addTarget:self action:@selector(openTheSection:) forControlEvents:UIControlEventTouchDown];
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
