@@ -173,14 +173,24 @@
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
     
-    UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    UILabel *cellTitle ;//= [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    UIImageView *additionalImage_new_offer;
+    UIImageView *accessoryIV ;//= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    if (self.isArabic.boolValue) {
+        accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(10.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        additionalImage_new_offer=[[UIImageView alloc] initWithFrame:CGRectMake(50.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(45.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    }else{
+        accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        additionalImage_new_offer= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 80.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    }
     [cellTitle setText:emAccordionSection.title];
     [cellTitle setTextColor:emAccordionSection.titleColor];
     [cellTitle setBackgroundColor:[UIColor clearColor]];
     [cellTitle setFont:emAccordionSection.titleFont];
     [sectionView addSubview:cellTitle];
     
-    UIImageView *accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
     BOOL value = [[sectionsOpened objectAtIndex:section] boolValue];
     [accessoryIV setBackgroundColor:[UIColor clearColor]];
     if (value)
