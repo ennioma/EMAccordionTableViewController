@@ -83,6 +83,10 @@
     emDelegate = delegate;
 }
 
+-(void)removeAllSections{
+    [sections removeAllObjects];
+}
+
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened {
     [sections addObject:section];
 
@@ -163,19 +167,30 @@
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, tableView.sectionHeaderHeight)];
     [sectionView setBackgroundColor:emAccordionSection.backgroundColor];
     
-    UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    //UIButton *sectionBtn = [[UIButton alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    UIButton *sectionBtn = [[UIButton alloc] initWithFrame:sectionView.frame];
     [sectionBtn addTarget:self action:@selector(openTheSection:) forControlEvents:UIControlEventTouchDown];
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
     
-    UILabel *cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    UILabel *cellTitle ;//= [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    UIImageView *additionalImage_new_offer;
+    UIImageView *accessoryIV ;//= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    if (self.isArabic.boolValue) {
+        accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(10.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        additionalImage_new_offer=[[UIImageView alloc] initWithFrame:CGRectMake(50.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(45.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    }else{
+        accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        additionalImage_new_offer= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 80.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    }
     [cellTitle setText:emAccordionSection.title];
     [cellTitle setTextColor:emAccordionSection.titleColor];
     [cellTitle setBackgroundColor:[UIColor clearColor]];
     [cellTitle setFont:emAccordionSection.titleFont];
     [sectionView addSubview:cellTitle];
     
-    UIImageView *accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
     BOOL value = [[sectionsOpened objectAtIndex:section] boolValue];
     [accessoryIV setBackgroundColor:[UIColor clearColor]];
     if (value)
@@ -215,8 +230,10 @@
 
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    if (!value)
+    if (!value){
         [self showCellsWithAnimation];
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    }
     
     [emDelegate latestSectionOpened];
 }
