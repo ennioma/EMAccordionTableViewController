@@ -3,7 +3,7 @@
 //  UChat
 //
 //  Created by Ennio Masi on 10/01/14.
-//  Copyright (c) 2014 Hippocrates Sintech. All rights reserved.
+//  Copyright (c) 2014 Ennio Masi. All rights reserved.
 //
 
 #import "EMAccordionTableViewController.h"
@@ -74,6 +74,14 @@
         openedSection = -1;
         
         self.sectionsHeaders = [[NSMutableArray alloc] initWithCapacity:0];
+        
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+        }
     }
     
     return self;
@@ -83,13 +91,13 @@
     emDelegate = delegate;
 }
 
--(void)removeAllSections{
+- (void) removeAllSections{
     [sections removeAllObjects];
 }
 
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened {
     [sections addObject:section];
-
+    
     NSInteger index = sections.count - 1;
     
     [sectionsOpened addObject:[NSNumber numberWithBool:opened]];
@@ -173,18 +181,19 @@
     [sectionBtn setTag:(kSectionTag + section)];
     [sectionView addSubview:sectionBtn];
     
-    UILabel *cellTitle ;//= [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
-    UIImageView *additionalImage_new_offer;
-    UIImageView *accessoryIV ;//= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+    UILabel *cellTitle;
+    UIImageView *additionalImageNewOffer;
+    UIImageView *accessoryIV;
     if (self.isArabic.boolValue) {
         accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(10.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
-        additionalImage_new_offer=[[UIImageView alloc] initWithFrame:CGRectMake(50.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
-        cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(45.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
-    }else{
+        additionalImageNewOffer = [[UIImageView alloc] initWithFrame:CGRectMake(50.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        cellTitle = [[UILabel alloc] initWithFrame:CGRectMake(45.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
+    } else {
         accessoryIV = [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 40.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
-        additionalImage_new_offer= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 80.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
+        additionalImageNewOffer= [[UIImageView alloc] initWithFrame:CGRectMake(sectionView.frame.size.width - 80.0f, (sectionView.frame.size.height / 2) - 15.0f, 30.0f, 30.0f)];
         cellTitle=[[UILabel alloc] initWithFrame:CGRectMake(5.0f, 0.0f, self.tableView.frame.size.width - 50.0f, sectionView.bounds.size.height)];
     }
+    
     [cellTitle setText:emAccordionSection.title];
     [cellTitle setTextColor:emAccordionSection.titleColor];
     [cellTitle setBackgroundColor:[UIColor clearColor]];
@@ -201,7 +210,7 @@
     [sectionView addSubview:accessoryIV];
     
     [self.sectionsHeaders insertObject:sectionView atIndex:section];
-
+    
     if ([emDelegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
         return [emDelegate tableView:tableView viewForHeaderInSection:section];
     
@@ -227,11 +236,10 @@
     [sectionsOpened setObject:updatedValue atIndexedSubscript:index];
     
     openedSection = index;
-
+    
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    if (!value){
-        [self showCellsWithAnimation];
+    if (!value) {
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:index] animated:YES scrollPosition:UITableViewScrollPositionTop];
     }
     
@@ -240,30 +248,6 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.parallaxHeaderView updateLayout:scrollView];
-}
-
-- (void) showCellsWithAnimation {
-    NSArray *cells = self.tableView.visibleCells;
-    
-    if (showedCell >= cells.count)
-        return;
-//    for (UIView *card in cells) {
-    
-    UIView *card = [cells objectAtIndex:showedCell];
-    
-    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
-    rotationAndPerspectiveTransform.m34 = 1.0 / -200.0;
-    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(90), 1.0f, 0.0f, 0.0f);
-    card.layer.transform = rotationAndPerspectiveTransform;
-    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, DEGREES_TO_RADIANS(-90), 1.0f, 0.0f, 0.0f);
-    [UIView animateWithDuration:.4 animations:^{
-        card.alpha = 1.0f;
-        card.layer.transform = rotationAndPerspectiveTransform;
-    } completion:^(BOOL finished){
-        showedCell++;
-        [self showCellsWithAnimation];
-    }];
-//    }
 }
 
 @end

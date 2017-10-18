@@ -3,7 +3,7 @@
 //  UChat
 //
 //  Created by Ennio Masi on 10/01/14.
-//  Copyright (c) 2014 Hippocrates Sintech. All rights reserved.
+//  Copyright (c) 2014 Ennio Masi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -35,11 +35,11 @@ typedef NS_ENUM(NSUInteger, EMAnimationType) {
 @property (nonatomic, strong) EMAccordionTableParallaxHeaderView *parallaxHeaderView;
 @property (nonatomic, strong) NSMutableArray *sectionsHeaders;
 @property (nonatomic) NSInteger defaultOpenedSection;
-@property (nonatomic, strong) NSNumber*isArabic;
+@property (nonatomic, strong) NSNumber* isArabic;
 
 - (id) initWithTable:(UITableView *)tableView withAnimationType:(EMAnimationType) type;
 
 - (void) addAccordionSection: (EMAccordionSection *) section initiallyOpened:(BOOL)opened;
 - (void) setDelegate: (NSObject <EMAccordionTableDelegate> *) delegate;
--(void)removeAllSections;
+- (void) removeAllSections;
 @end

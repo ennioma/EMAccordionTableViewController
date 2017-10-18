@@ -3,7 +3,7 @@
 //  EMAccordionTableViewController
 //
 //  Created by Ennio Masi on 04/12/14.
-//  Copyright (c) 2014 EM. All rights reserved.
+//  Copyright (c) 2014 Ennio Masi. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
